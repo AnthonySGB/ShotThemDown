@@ -28,7 +28,7 @@ function init()
     player1 = new Player("player1", 0xffff00, new THREE.Vector2(50, 0), 0);
     scene.add(player1.graphic);
 
-    player2 = new Ennemy("ennemy1", 0xffee00, new THREE.Vector2(50, 0), 0);
+    player2 = new Ennemy("ennemy1", 0xffa500, new THREE.Vector2(50, 0), 0);
     scene.add(player2.graphic);
 
     light1 = new Light("sun", 0xffffff, "0,0,340");
@@ -37,7 +37,7 @@ function init()
 
 function Ground(color, size_x, size_y, nb_tile)
 {
-    colors = Array(0xffff00, 0x00ff00, 0x0000ff, 0x000000);
+    colors = Array(0xFFA500, 0x00aa00, 0x007fff, 0x000000);
 
     sizeOfTileX = size_x / nb_tile;
     minX = -(size_x/2);

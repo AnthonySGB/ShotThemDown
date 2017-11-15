@@ -11,7 +11,7 @@ var Ennemy = function(name, color, position, direction) {
         color: color,
     });
 
-    bumperMesh = new THREE.Mesh(new THREE.CylinderGeometry(0, 10, 10, 12, 12, false), this.materialBumper);
+    bumperMesh = new THREE.Mesh(new THREE.CylinderGeometry(0, 15, 15, 12, 12, false), this.materialBumper);
     bumperMesh.rotation.x = Math.PI / 2 ;
 
     sphere = new THREE.SphereGeometry(6, 8, 8);

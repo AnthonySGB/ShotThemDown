@@ -43,16 +43,27 @@ function collisions()
 function bullet_collision()
 {
     //collision between bullet and walls
-    for (var i = 0; i < player1.bullets.length; i++)
-    {
+    for (var i = 0; i < player1.bullets.length; i++) {
         if (Math.abs(player1.bullets[i].position.x) >= WIDTH / 2 ||
-            Math.abs(player1.bullets[i].position.y) >= HEIGHT / 2)
-        {
+            Math.abs(player1.bullets[i].position.y) >= HEIGHT / 2) {
             scene.remove(player1.bullets[i]);
             player1.bullets.splice(i, 1);
             i--;
         }
+        else
+        {
+            console.log(Math.round(player1.bullets[i].position.x));
+            console.log(Math.round(player2.graphic.position.x));
+            if ((Math.round(player1.bullets[i].position.x) <= Math.round(player2.graphic.position.x) + 8) &&
+                (Math.round(player1.bullets[i].position.x) >= Math.round(player2.graphic.position.x) - 8) &&
+                (Math.round(player1.bullets[i].position.y) <= Math.round(player2.graphic.position.y) + 8) &&
+                (Math.round(player1.bullets[i].position.y) >= Math.round(player2.graphic.position.y) - 8))
+            {
+                player2.graphic.visible = false;
+            }
+        }
     }
+
 
 }
 
