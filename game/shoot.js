@@ -37,6 +37,7 @@ function collisions()
     bullet_collision();
     player_collision();
     player_falling();
+    player2_collision();
 }
 
 function bullet_collision()
@@ -63,10 +64,37 @@ function player_collision()
 
     if ( x > WIDTH )
         player1.graphic.position.x -= x - WIDTH;
+    if ( x < 0 )
+        player1.graphic.position.x -= x;
     if ( y < 0 )
         player1.graphic.position.y -= y;
     if ( y > HEIGHT )
         player1.graphic.position.y -= y - HEIGHT;
+
+}
+
+function player2_collision()
+{
+    //collision between player and walls
+    var x = player2.graphic.position.x + WIDTH / 2;
+    var y = player2.graphic.position.y + HEIGHT / 2;
+
+    if ( x > WIDTH ) {
+        player2.graphic.position.x -= x - WIDTH;
+        player2.speed = -player2.speed;
+    }
+    if ( x < 0 ) {
+        player2.graphic.position.x -= x;
+        player2.speed = -player2.speed;
+    }
+    if ( y < 0 ) {
+        player2.graphic.position.y -= y;
+        player2.speed = -player2.speed;
+    }
+    if ( y > HEIGHT ) {
+        player2.graphic.position.y -= y - HEIGHT;
+        player2.speed = -player2.speed;
+    }
 
 }
 
